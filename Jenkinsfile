@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        NODEJS_VERSION = '22.13.0'  // Change to your required Node.js version
+        NODEJS_VERSION = '23'  // Change to your required Node.js version
     }
 
     stages {
