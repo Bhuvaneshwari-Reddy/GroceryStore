@@ -9,6 +9,7 @@ on:
     branches:
       - main
       - develop
+  workflow_dispatch: # 👈 Enables manual trigger
 
 jobs:
   test:
