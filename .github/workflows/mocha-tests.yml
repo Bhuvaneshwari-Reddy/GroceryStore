@@ -27,6 +27,6 @@ jobs:
       - name: Install Dependencies
         run: npm ci # Ensures a clean installation
 
-      - name: Run Mocha Tests with JUnit Reporter
+      - name: Run Mocha Tests with Spec Reporter
         run: |
-          npx mocha --timeout 10000 "GroceryApi\\groceryStore\\groceryApi.js" --reporter mocha-junit-reporter
+          npx mocha --timeout 10000 "GroceryApi\\groceryStore\\groceryApi.js" --reporter spec
