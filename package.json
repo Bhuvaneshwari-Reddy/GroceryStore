@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --timeout 10000 './GroceryApi/groceryStore/groceryApi.js'"
+    "test": "mocha --timeout 10000 GroceryApi/groceryStore/groceryApi.js"
   },
   "keywords": [],
   "author": "",
@@ -13,5 +13,8 @@
     "chai": "^4.3.4",
     "chai-http": "^4.3.0",
     "mocha": "^9.1.3"
+  },
+  "devDependencies": {
+    "mocha-junit-reporter": "^2.2.1"
   }
 }

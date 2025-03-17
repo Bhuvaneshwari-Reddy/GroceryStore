@@ -1,4 +1,4 @@
-name: Mocha Tests
+name: Mocha Tests on Windows
 
 on:
   push:
@@ -12,13 +12,7 @@ on:
 
 jobs:
   test:
-    name: Run Mocha Tests
-    runs-on: windows-latest
-
-    strategy:
-      matrix:
-        node-version: [18]
-        os: windows-latest
+    runs-on: windows-latest # Runs on Windows
 
     steps:
       - name: Checkout Repository
@@ -27,17 +21,11 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 18
 
       - name: Install Dependencies
-        run: npm install
+        run: npm ci # Ensures a clean installation
 
-      - name: Run Mocha Tests
-        run: npx mocha tests/**/*.spec.js --reporter mocha-junit-reporter
-        continue-on-error: false # Stop workflow if tests fail
-
-      - name: Upload Test Results
-        uses: actions/upload-artifact@v4
-        with:
-          name: mocha-test-results
-          path: test-results.xml
+      - name: Run Mocha Tests with JUnit Reporter
+        run: |
+          npx mocha --timeout 10000 "GroceryApi\\groceryStore\\groceryApi.js" --reporter mocha-junit-reporter
